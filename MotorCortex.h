@@ -19,6 +19,10 @@ class MotorCortexClass
 	void init();
 	void Stand();
 	void Crouch();
+	void TipLeft();
+	void TipRight();
+	void Forward(void);
+	void Backward(void);
 };
 
 //extern MotorCortexClass MotorCortex;

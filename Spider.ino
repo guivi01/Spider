@@ -22,6 +22,18 @@ void loop()
 		case 'b':
 			m_motorCortex.Crouch();
 			break;
+		case 'c':
+			m_motorCortex.TipLeft();
+			break;
+		case 'd':
+			m_motorCortex.TipRight();
+			break;
+		case 'e':
+			m_motorCortex.Forward();
+			break;
+		case 'f':
+			m_motorCortex.Backward();
+			break;
 		}
 		
 	}

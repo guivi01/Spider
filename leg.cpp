@@ -19,9 +19,10 @@ void LegClass::init(int abductor, int pelvic, int knee, Side side, Location loca
 	m_kneoff = kneoff;
 
 	
-	m_abdpos = 60;
-	m_knepos = 60;
-	switch (m_location) {
+	m_abdpos = 80;
+	m_knepos = 80;
+	m_pelpos = 0;
+	/*switch (m_location) {
 	case BACK:
 		m_pelpos = -20;
 		break;
@@ -29,19 +30,19 @@ void LegClass::init(int abductor, int pelvic, int knee, Side side, Location loca
 		m_pelpos = 0;
 		break;
 	case FRONT:
-		m_pelpos = 20;
+		m_pelpos = 30;
 		break;
-	}
+	}*/
 }
 
 void LegClass::Move()
 {
-	m_abductor.slowmove(90 + (m_abdpos*m_side) + (m_abdoff*m_side), 30);
-	delay(15);
-	m_pelvic.slowmove(90 + (m_pelpos*m_side) + (m_peloff*m_side), 30);
-	delay(15);
-	m_knee.slowmove(90 + (m_knepos*m_side) + (m_kneoff*m_side), 30);
-	delay(15);
+	m_abductor.slowmove(90 + (m_abdpos*m_side) + (m_abdoff*m_side), m_velocity);
+	//delay(15);
+	m_pelvic.slowmove(90 + (m_pelpos*m_side) + (m_peloff*m_side) +((int)m_location*m_side), m_velocity);
+	//delay(15);
+	m_knee.slowmove(90 + (m_knepos*m_side) + (m_kneoff*m_side), m_velocity);
+	//delay(15);
 	//m_abductor.write(90 + (m_abdpos*m_side) + (m_abdoff*m_side));
 	//m_pelvic.write(90 + (m_pelpos*m_side) + (m_peloff*m_side));
 	//m_knee.write(90 + (m_knepos*m_side) + (m_kneoff*m_side));
@@ -51,7 +52,8 @@ void LegClass::Stand()
 {
 	m_abdpos = 10;
 	m_knepos = 60;
-	switch (m_location) {
+	m_velocity = 255;
+	/*switch (m_location) {
 	case BACK:
 		m_pelpos = -20;
 		break;
@@ -59,16 +61,17 @@ void LegClass::Stand()
 		m_pelpos = 0;
 		break;
 	case FRONT:
-		m_pelpos = 20;
+		m_pelpos = 30;
 		break;
-	}
+	}*/
 }
 
 void LegClass::Crouch()
 {
-	m_abdpos = 60;
-	m_knepos = 60;
-	switch (m_location) {
+	m_abdpos = 80;
+	m_knepos = 80;
+	m_velocity = 30;
+	/*switch (m_location) {
 	case BACK:
 		m_pelpos = -20;
 		break;
@@ -76,9 +79,9 @@ void LegClass::Crouch()
 		m_pelpos = 0;
 		break;
 	case FRONT:
-		m_pelpos = 20;
+		m_pelpos = 30;
 		break;
-	}
+	}*/
 }
 
 

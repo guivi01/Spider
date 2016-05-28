@@ -19,9 +19,9 @@ class LegClass
 		LEFT = 1
 	};
 	enum Location {
-		BACK = 0,
-		MIDDLE,
-		FRONT
+		BACK = -40,
+		MIDDLE = 0,
+		FRONT = 40
 	};
  protected:
 	 VarSpeedServo 	m_abductor;
@@ -31,11 +31,15 @@ class LegClass
 	 Location m_location;
 	 int	m_abdpos = 0, m_pelpos = 0, m_knepos = 0;
 	 int	m_abdoff = 0, m_peloff = 0, m_kneoff = 0;
+	 int	m_velocity = 127;
  public:
 	void init(int abductor, int pelvic, int knee, Side side, Location location, int abdoff = 0, int peloff = 0, int kneoff = 0);
 	void Stand();
 	void Move();
 	void Crouch();
+	void SetPel(int pelpos) { m_pelpos = pelpos; };
+	void SetAbd(int abdpos) { m_abdpos = abdpos; };
+	void SetKne(int knepos) { m_knepos = knepos; };
 };
 
 #endif
